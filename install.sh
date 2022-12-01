@@ -11,7 +11,7 @@ USER_NAME=$(whoami)
 
 # editing the settings.json configuration
 # if the script founds  C++ code-runner.executorMap, it will update the map with arguments
-if [[ ! $(cat C:/Users/$USER_NAME/AppData/Roaming/Code/User/settings.json | grep '"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"') ]]; then
+if [[ $(cat C:/Users/$USER_NAME/AppData/Roaming/Code/User/settings.json | grep '"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"') ]]; then
 
     sed -i 's/"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",/"cpp": "cd $dir && g++ $fileName -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -o $fileNameWithoutExt && $dir$fileNameWithoutExt",/' C:/Users/$USER_NAME/AppData/Roaming/Code/User/settings.json
 
